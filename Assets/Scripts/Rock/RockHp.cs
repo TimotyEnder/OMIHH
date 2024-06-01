@@ -18,7 +18,7 @@ public class RockHp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        changeSprite();
+        ChangeSprite();
     }
 
     public void DamageRock(int damage)
@@ -30,7 +30,7 @@ public class RockHp : MonoBehaviour
         curHealth += healing;
     }
 
-    private void changeSprite(){
+    private void ChangeSprite(){
         Sprite sprite = spriteFull;
         //This has to be changed when we decide on the hp
         if(curHealth < maxHealth) sprite = spriteHigh;
