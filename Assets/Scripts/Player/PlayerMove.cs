@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     public bool RockPickedUp=false;
     public GameObject rollPosPivot;
     private Vector3 diff;
+    public GameObject rockRollPos;
+    public float rollForce;
     void Start()
     {
         
