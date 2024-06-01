@@ -6,6 +6,9 @@ public class RockHp : MonoBehaviour
 {
     [SerializeField] private int curHealth = 0;
     [SerializeField] private int maxHealth = 4;
+    public SpriteRenderer spriteRenderer;
+    public Sprite spriteFull;
+    public Sprite spriteHigh;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,7 @@ public class RockHp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //DamageRock(1);
+        changeSprite();
     }
 
     public void DamageRock(int damage)
@@ -25,5 +28,13 @@ public class RockHp : MonoBehaviour
 
     public void HealRock(int healing){
         curHealth += healing;
+    }
+
+    private void changeSprite(){
+        Sprite sprite = spriteFull;
+        //This has to be changed when we decide on the hp
+        if(curHealth < maxHealth) sprite = spriteHigh;
+
+        spriteRenderer.sprite = sprite;
     }
 }
