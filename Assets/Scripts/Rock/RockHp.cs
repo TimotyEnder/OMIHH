@@ -5,7 +5,7 @@ using UnityEngine;
 public class RockHp : MonoBehaviour
 {
     [SerializeField] private int curHealth = 0;
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +18,12 @@ public class RockHp : MonoBehaviour
         //DamageRock(1);
     }
 
-    public void DamageRock( int damage )
+    public void DamageRock(int damage)
     {
         curHealth -= damage;
+    }
+
+    public void HealRock(int healing){
+        curHealth += healing;
     }
 }
