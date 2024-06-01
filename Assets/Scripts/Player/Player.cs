@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
     //movement
     [SerializeField] private Rigidbody2D playerrb;
@@ -21,6 +21,9 @@ public class PlayerMove : MonoBehaviour
     private Vector3 diff;
     public GameObject rockRollPos;
     public float rollForce;
+
+    //stats
+    public float RockBounce;
     void Start()
     {
         
@@ -43,6 +46,8 @@ public class PlayerMove : MonoBehaviour
     private void Rock() 
     {
         //rock mechanics
+        CircleCollider2D rockColl = rock.GetComponent<CircleCollider2D>();
+        rockColl.attachedRigidbody.sharedMaterial.bounciness = RockBounce;
         if (RockPickedUp) 
         {
             rock.transform.position=rockCarry.transform.position;
@@ -56,7 +61,6 @@ public class PlayerMove : MonoBehaviour
         {
             RockPickedUp = false;
             rock.transform.position = rockRollPos.transform.position;
-            rock.transform.rotation = rockRollPos.transform.rotation;
 
             // Calculate the direction the rock is facing
             Vector2 rollDirection = rockRollPos.transform.right; // Assuming right is the direction the rock faces

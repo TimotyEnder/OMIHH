@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 1188232277}
   - component: {fileID: 1188232276}
   - component: {fileID: 1188232279}
+  - component: {fileID: 1188232280}
   m_Layer: 0
   m_Name: Rock
   m_TagString: rock
@@ -756,7 +757,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1188232275}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: c5e714c4d7430dc498e844db0957bf67, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -779,9 +780,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000005055019, y: 0}
+  m_Offset: {x: 0.0052975216, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.23060498
 --- !u!212 &1188232277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -823,7 +824,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfd7106416369ca47b86c27e06147767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -844,7 +845,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.92, y: 1.02, z: -10.2}
-  m_LocalScale: {x: 2.358236, y: 2.358236, z: 2.358236}
+  m_LocalScale: {x: 5.049998, y: 5.049998, z: 5.049998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -863,7 +864,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1.5
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: c5e714c4d7430dc498e844db0957bf67, type: 2}
   m_IncludeLayers:
@@ -875,7 +876,24 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &1188232280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188232275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55d3f5ebc9f5684fb1451b53d92b033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 4
+  spriteRenderer: {fileID: 1188232277}
+  spriteFull: {fileID: 21300000, guid: bfd7106416369ca47b86c27e06147767, type: 3}
+  spriteHigh: {fileID: 21300000, guid: f1f78a43f81069c409d84aebc94a5317, type: 3}
 --- !u!1 &1227830948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,6 +1080,7 @@ MonoBehaviour:
   rollPosPivot: {fileID: 1352050617}
   rockRollPos: {fileID: 1369050488}
   rollForce: 20
+  RockBounce: 0.2
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0
