@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     private Vector3 diff;
     public GameObject rockRollPos;
     public float rollForce;
+    //pickup delay
+    private float timevar;
+    public float pickUpDelay;
 
     //stats
     public float RockBounce;
@@ -79,8 +82,9 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("rock")) 
+        if (collision.gameObject.tag.Equals("rock")&& timevar < Time.time) 
         {
+            timevar = Time.time + pickUpDelay;
             RockPickedUp = true;
         }
     }
