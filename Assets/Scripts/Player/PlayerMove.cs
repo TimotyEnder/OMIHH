@@ -12,10 +12,13 @@ public class PlayerMove : MonoBehaviour
     public float FreeSpeed;
     public float PickUpSpeed;
 
-    //rock mechanics
+    //rock 
     public GameObject rock;
     public GameObject rockCarry;
     public bool RockPickedUp=false;
+    public GameObject rollPosPivot;
+    private Vector3 mousePos;
+    private Vector3 worldPos;
     void Start()
     {
         
@@ -37,6 +40,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void Rock() 
     {
+        //rock mechanics
         if (RockPickedUp) 
         {
             rock.transform.position=rockCarry.transform.position;
@@ -46,6 +50,16 @@ public class PlayerMove : MonoBehaviour
         {
             RockPickedUp = false;
         }
+
+        //rolling rock
+        mousePos = Input.mousePosition;
+        mousePos.z = -(rollPosPivot.transform.position.x - Camera.main.transform.position.x);
+        worldPos=Camera.main.ScreenToWorldPoint(mousePos);
+        //calculate rotation
+        float rotZ = Mathf.Atan2(worldPos.y, worldPos.x) * Mathf.Rad2Deg;
+        //apply to object
+        rollPosPivot.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
