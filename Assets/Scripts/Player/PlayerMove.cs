@@ -17,8 +17,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject rockCarry;
     public bool RockPickedUp=false;
     public GameObject rollPosPivot;
-    private Vector3 mousePos;
-    private Vector3 worldPos;
+    private Vector3 diff;
     void Start()
     {
         
@@ -51,12 +50,10 @@ public class PlayerMove : MonoBehaviour
             RockPickedUp = false;
         }
 
-        //rolling rock
-        mousePos = Input.mousePosition;
-        mousePos.z = -(rollPosPivot.transform.position.x - Camera.main.transform.position.x);
-        worldPos=Camera.main.ScreenToWorldPoint(mousePos);
-        //calculate rotation
-        float rotZ = Mathf.Atan2(worldPos.y, worldPos.x) * Mathf.Rad2Deg;
+        diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - rollPosPivot.transform.position;
+        //normalize difference  
+        diff.Normalize();
+        float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         //apply to object
         rollPosPivot.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
