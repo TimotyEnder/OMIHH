@@ -862,7 +862,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: c5e714c4d7430dc498e844db0957bf67, type: 2}
@@ -1056,11 +1056,12 @@ MonoBehaviour:
   FreeSpeed: 5
   PickUpSpeed: 3
   rock: {fileID: 1188232275}
+  rockRb: {fileID: 1188232279}
   rockCarry: {fileID: 1958792191}
   RockPickedUp: 0
   rollPosPivot: {fileID: 1352050617}
-  rockRollPos: {fileID: 0}
-  rollForce: 0
+  rockRollPos: {fileID: 1369050488}
+  rollForce: 20
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1208,7 @@ Transform:
   m_GameObject: {fileID: 1369050488}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.36, y: 0, z: 0}
+  m_LocalPosition: {x: 2.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

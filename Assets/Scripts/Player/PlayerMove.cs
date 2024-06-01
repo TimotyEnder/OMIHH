@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
 
     //rock 
     public GameObject rock;
+    public Rigidbody2D rockRb;
     public GameObject rockCarry;
     public bool RockPickedUp=false;
     public GameObject rollPosPivot;
@@ -51,7 +52,19 @@ public class PlayerMove : MonoBehaviour
         {
             RockPickedUp = false;
         }
+        if (Input.GetButtonDown("Roll")&& RockPickedUp) 
+        {
+            RockPickedUp = false;
+            rock.transform.position = rockRollPos.transform.position;
+            rock.transform.rotation = rockRollPos.transform.rotation;
 
+            // Calculate the direction the rock is facing
+            Vector2 rollDirection = rockRollPos.transform.right; // Assuming right is the direction the rock faces
+
+            // Apply the force to the rock in the roll direction
+            rockRb.velocity = rollDirection * rollForce;
+
+        }
         diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - rollPosPivot.transform.position;
         //normalize difference  
         diff.Normalize();
