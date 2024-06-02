@@ -228,7 +228,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.9870243
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -420,7 +420,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.836787, y: 1.7828444, z: -5.3211937}
-  m_LocalScale: {x: 1.1336, y: 9.970069, z: 1}
+  m_LocalScale: {x: 1.1336, y: 9.970069, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1261865288}
@@ -549,7 +549,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.1300125, y: 1.7828444, z: -5.3211937}
-  m_LocalScale: {x: 1, y: 9.970069, z: 1}
+  m_LocalScale: {x: 1, y: 9.970069, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1261865288}
@@ -1119,9 +1119,10 @@ MonoBehaviour:
   RockPickedUp: 0
   rollPosPivot: {fileID: 1352050617}
   rockRollPos: {fileID: 1369050488}
-  rollForce: 20
   pickUpDelay: 0.5
   RockBounce: 0.1
+  rollForce: 20
+  rollAtkSpeed: 0.5
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1406,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071072, w: 0.70710635}
   m_LocalPosition: {x: -0.13321248, y: -2.7454557, z: -5.3211937}
-  m_LocalScale: {x: 1, y: 16.903254, z: 1}
+  m_LocalScale: {x: 1, y: 16.903254, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1261865288}

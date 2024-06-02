@@ -20,13 +20,16 @@ public class Player : MonoBehaviour
     public GameObject rollPosPivot;
     private Vector3 diff;
     public GameObject rockRollPos;
-    public float rollForce;
     //pickup delay
     private float timevar;
     public float pickUpDelay;
+    //roll delay movement
+    private bool rolling;
 
     //stats
     public float RockBounce;
+    public float rollForce;
+    public float rollAtkSpeed;
     void Start()
     {
         
@@ -44,7 +47,7 @@ public class Player : MonoBehaviour
         y = Input.GetAxis("Y");
         move = new Vector2(x, y);
         move = move.normalized;
-        playerrb.velocity = move * (RockPickedUp==true?PickUpSpeed:FreeSpeed);
+        playerrb.velocity = move * (RockPickedUp == true ? PickUpSpeed : FreeSpeed) * (rolling == true ? 0:1) ;
     }
     private void Rock() 
     {
@@ -62,6 +65,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonDown("Roll")&& RockPickedUp) 
         {
+            StartCoroutine(RollCoroutine());
             RockPickedUp = false;
             rock.transform.position = rockRollPos.transform.position;
 
@@ -87,5 +91,11 @@ public class Player : MonoBehaviour
             timevar = Time.time + pickUpDelay;
             RockPickedUp = true;
         }
+    }
+    private IEnumerator RollCoroutine() 
+    {
+        rolling = true;
+        yield return new WaitForSeconds(rollAtkSpeed);
+        rolling=false;
     }
 }
