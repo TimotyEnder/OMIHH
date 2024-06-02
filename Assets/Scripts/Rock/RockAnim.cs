@@ -8,6 +8,7 @@ public class RockAnim : MonoBehaviour
     public SpriteRenderer rockSpr;
     public Rigidbody2D rockRb;
     public Player player;
+    public float rockAnimSpeed;
     void Update()
     {
         if (rockRb.velocity.x < 0 && !player.RockPickedUp) 
@@ -26,5 +27,6 @@ public class RockAnim : MonoBehaviour
         {
             rockanim.SetBool("SIDEROLL", false);
         }
+        rockanim.speed = rockRb.velocity.magnitude*(1/rockAnimSpeed);
     }
 }
