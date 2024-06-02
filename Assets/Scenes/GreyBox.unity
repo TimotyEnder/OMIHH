@@ -742,6 +742,7 @@ GameObject:
   - component: {fileID: 1188232279}
   - component: {fileID: 1188232280}
   - component: {fileID: 1188232281}
+  - component: {fileID: 1188232282}
   m_Layer: 0
   m_Name: Rock
   m_TagString: rock
@@ -916,6 +917,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1188232282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188232275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62700ec1077242a4a94e5352733b53ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockanim: {fileID: 1188232281}
+  rockSpr: {fileID: 1188232277}
+  rockRb: {fileID: 1188232279}
+  player: {fileID: 1227830953}
 --- !u!1 &1227830948
 GameObject:
   m_ObjectHideFlags: 0
