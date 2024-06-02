@@ -781,9 +781,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0052975216, y: 0.02659053}
+  m_Offset: {x: 0.003771524, y: -0.0024035436}
   serializedVersion: 2
-  m_Radius: 0.2255401
+  m_Radius: 0.22554004
 --- !u!212 &1188232277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -845,7 +845,7 @@ Transform:
   m_GameObject: {fileID: 1188232275}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.92, y: 1.02, z: -10.2}
+  m_LocalPosition: {x: 4.393, y: 1.267, z: -10.2}
   m_LocalScale: {x: 5.049998, y: 5.049998, z: 5.049998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   rockRollPos: {fileID: 1369050488}
   rollForce: 20
   pickUpDelay: 0.5
-  RockBounce: 0.2
+  RockBounce: 0.1
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0
