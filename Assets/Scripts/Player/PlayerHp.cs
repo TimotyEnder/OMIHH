@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockHp : MonoBehaviour
+public class PlayerHp : MonoBehaviour
 {
     [SerializeField] private int curHealth = 0;
     [SerializeField] private int maxHealth = 4;

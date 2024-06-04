@@ -931,7 +931,6 @@ GameObject:
   - component: {fileID: 1188232277}
   - component: {fileID: 1188232276}
   - component: {fileID: 1188232279}
-  - component: {fileID: 1188232280}
   - component: {fileID: 1188232281}
   - component: {fileID: 1188232282}
   m_Layer: 0
@@ -1070,23 +1069,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1188232280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188232275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55d3f5ebc9f5684fb1451b53d92b033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curHealth: 0
-  maxHealth: 4
-  spriteRenderer: {fileID: 1188232277}
-  spriteFull: {fileID: 21300000, guid: bfd7106416369ca47b86c27e06147767, type: 3}
-  spriteHigh: {fileID: 21300000, guid: f1f78a43f81069c409d84aebc94a5317, type: 3}
 --- !u!95 &1188232281
 Animator:
   serializedVersion: 5
@@ -1138,6 +1120,7 @@ GameObject:
   - component: {fileID: 1227830951}
   - component: {fileID: 1227830952}
   - component: {fileID: 1227830953}
+  - component: {fileID: 1227830954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1319,6 +1302,23 @@ MonoBehaviour:
   rollForce: 0
   rollAtkSpeed: 0.5
   rollChargeSpeed: 0.05
+--- !u!114 &1227830954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227830948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55d3f5ebc9f5684fb1451b53d92b033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 4
+  spriteRenderer: {fileID: 0}
+  spriteFull: {fileID: 0}
+  spriteHigh: {fileID: 0}
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0

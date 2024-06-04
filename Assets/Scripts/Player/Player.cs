@@ -66,10 +66,6 @@ public class Player : MonoBehaviour
             rock.transform.position=rockCarry.transform.position;
             rock.transform.rotation=rockCarry.transform.rotation;
         }
-        if (Input.GetButtonDown("drop")) 
-        {
-            RockPickedUp = false;
-        }
         if(Input.GetButton("Roll") && RockPickedUp) 
         {
             chargebar.gameObject.SetActive(true);
