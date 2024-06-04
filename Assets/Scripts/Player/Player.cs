@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -37,9 +39,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float rollForce;
     public float rollAtkSpeed;
     public float rollChargeSpeed;
+    public float dashSpeed;
+    // rock dash
+    public bool ethereal;
+    public SpriteRenderer sprite;
     void Start()
     {
-        
+        sprite = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -47,6 +53,7 @@ public class Player : MonoBehaviour
     {
         movement();
         Rock();
+        Dash();
     }
     private void movement() 
     {
@@ -54,7 +61,7 @@ public class Player : MonoBehaviour
         y = Input.GetAxis("Y");
         move = new Vector2(x, y);
         move = move.normalized;
-        playerrb.velocity = move * (RockPickedUp == true ? PickUpSpeed : FreeSpeed) * (rolling == true ? 0.2f:1) ;
+        playerrb.velocity = move * (RockPickedUp == true ? PickUpSpeed : FreeSpeed) * (rolling ? 0.2f:1) * (ethereal?0:1);
     }
     private void Rock() 
     {
@@ -99,6 +106,27 @@ public class Player : MonoBehaviour
         //apply to object
         rollPosPivot.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
+    }
+    private void Dash() 
+    {
+        if (ethereal) 
+        {
+            float step=dashSpeed * Time.deltaTime;
+            playerrb.MovePosition(Vector2.MoveTowards(this.transform.position, rock.transform.position, step)); 
+            sprite.color = Color.blue;
+        }
+        else 
+        {
+            sprite.color = Color.white;
+        }
+        if (Input.GetButtonDown("Dash") && !RockPickedUp) 
+        {
+            ethereal = true;
+        }
+        if (RockPickedUp) 
+        {
+            ethereal = false;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

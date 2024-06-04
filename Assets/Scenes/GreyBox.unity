@@ -1302,6 +1302,9 @@ MonoBehaviour:
   rollForce: 0
   rollAtkSpeed: 0.5
   rollChargeSpeed: 0.05
+  dashSpeed: 80
+  ethereal: 0
+  sprite: {fileID: 1227830949}
 --- !u!114 &1227830954
 MonoBehaviour:
   m_ObjectHideFlags: 0
