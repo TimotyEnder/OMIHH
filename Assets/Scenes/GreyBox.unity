@@ -846,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 1188232275}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.393, y: 1.267, z: -10.2}
+  m_LocalPosition: {x: 4.35, y: 0.2, z: -10.2}
   m_LocalScale: {x: 5.049998, y: 5.049998, z: 5.049998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1121,8 +1121,10 @@ MonoBehaviour:
   rockRollPos: {fileID: 1369050488}
   pickUpDelay: 0.5
   RockBounce: 0.1
-  rollForce: 20
+  rollForceMax: 30
+  rollForce: 0
   rollAtkSpeed: 0.5
+  rollChargeSpeed: 0.05
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0

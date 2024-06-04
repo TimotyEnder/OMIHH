@@ -21,15 +21,18 @@ public class Player : MonoBehaviour
     private Vector3 diff;
     public GameObject rockRollPos;
     //pickup delay
-    private float timevar;
+    private float pickuptimevar;
     public float pickUpDelay;
     //roll delay movement
     private bool rolling;
-
+    //roll charging
+    private float rollchargetimevar;
     //stats
     public float RockBounce;
-    public float rollForce;
+    public float rollForceMax;
+    [SerializeField] private float rollForce;
     public float rollAtkSpeed;
+    public float rollChargeSpeed;
     void Start()
     {
         
@@ -47,7 +50,7 @@ public class Player : MonoBehaviour
         y = Input.GetAxis("Y");
         move = new Vector2(x, y);
         move = move.normalized;
-        playerrb.velocity = move * (RockPickedUp == true ? PickUpSpeed : FreeSpeed) * (rolling == true ? 0:1) ;
+        playerrb.velocity = move * (RockPickedUp == true ? PickUpSpeed : FreeSpeed) * (rolling == true ? 0.2f:1) ;
     }
     private void Rock() 
     {
@@ -63,9 +66,18 @@ public class Player : MonoBehaviour
         {
             RockPickedUp = false;
         }
-        if (Input.GetButtonDown("Roll")&& RockPickedUp) 
+        if(Input.GetButton("Roll") && RockPickedUp) 
         {
-            StartCoroutine(RollCoroutine());
+            rolling = true;
+            if (rollForce < rollForceMax && rollchargetimevar < Time.time) 
+            {
+                rollchargetimevar = Time.time + rollChargeSpeed;
+                rollForce++;
+            }
+        }
+        if (Input.GetButtonUp("Roll")&& RockPickedUp) 
+        {
+            rolling=false;
             RockPickedUp = false;
             rock.transform.position = rockRollPos.transform.position;
 
@@ -74,6 +86,7 @@ public class Player : MonoBehaviour
 
             // Apply the force to the rock in the roll direction
             rockRb.velocity = rollDirection * rollForce;
+            rollForce = 0;
 
         }
         diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - rollPosPivot.transform.position;
@@ -86,16 +99,10 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("rock")&& timevar < Time.time) 
+        if (collision.gameObject.tag.Equals("rock")&& pickuptimevar < Time.time) 
         {
-            timevar = Time.time + pickUpDelay;
+            pickuptimevar = Time.time + pickUpDelay;
             RockPickedUp = true;
         }
-    }
-    private IEnumerator RollCoroutine() 
-    {
-        rolling = true;
-        yield return new WaitForSeconds(rollAtkSpeed);
-        rolling=false;
     }
 }
