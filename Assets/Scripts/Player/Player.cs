@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class Player : MonoBehaviour
     private bool rolling;
     //roll charging
     private float rollchargetimevar;
+    //charge bar
+    [SerializeField] private Slider chargebar;
+    [SerializeField] private GameObject chargeBarGO;
     //stats
     public float RockBounce;
     public float rollForceMax;
@@ -68,6 +72,8 @@ public class Player : MonoBehaviour
         }
         if(Input.GetButton("Roll") && RockPickedUp) 
         {
+            chargebar.gameObject.SetActive(true);
+            chargebar.value = rollForce / rollForceMax;
             rolling = true;
             if (rollForce < rollForceMax && rollchargetimevar < Time.time) 
             {
@@ -77,7 +83,8 @@ public class Player : MonoBehaviour
         }
         if (Input.GetButtonUp("Roll")&& RockPickedUp) 
         {
-            rolling=false;
+            chargebar.gameObject.SetActive(false);
+            rolling =false;
             RockPickedUp = false;
             rock.transform.position = rockRollPos.transform.position;
 
