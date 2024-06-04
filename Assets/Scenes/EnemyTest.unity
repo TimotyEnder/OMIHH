@@ -799,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePre: {fileID: 7838732831963350990, guid: 0278a09ae24f0744bbb7cc81c33d99f7, type: 3}
   delay: 0
-  shootPos: {fileID: 1943207764}
+  shootPos: {fileID: 1377368973}
 --- !u!1 &350603489
 GameObject:
   m_ObjectHideFlags: 0
