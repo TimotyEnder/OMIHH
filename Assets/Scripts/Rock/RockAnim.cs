@@ -19,13 +19,29 @@ public class RockAnim : MonoBehaviour
         {
             rockSpr.flipX = false;
         }
+        if (rockRb.velocity.y < 0 && !player.RockPickedUp)
+        {
+            rockSpr.flipY = true;
+        }
+        else if (rockRb.velocity.y > 0 && !player.RockPickedUp)
+        {
+            rockSpr.flipY = false;
+        }
         if (rockRb.velocity.magnitude > 0.1f && !player.RockPickedUp) 
         {
-            rockanim.SetBool("SIDEROLL", true);
+            if(rockRb.velocity.x * rockRb.velocity.x > rockRb.velocity.y * rockRb.velocity.y) 
+            {
+                rockanim.SetBool("SIDEROLL", true);
+            }
+            else 
+            {
+                rockanim.SetBool("ROLLFOR", true);
+            }
         }
         else 
         {
             rockanim.SetBool("SIDEROLL", false);
+            rockanim.SetBool("ROLLFOR", false);
         }
         rockanim.speed = rockRb.velocity.magnitude*(1/rockAnimSpeed);
     }

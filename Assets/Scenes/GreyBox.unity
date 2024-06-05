@@ -1016,7 +1016,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fec3cded569a8d34e9fa6ce9c87430b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12f1f9600aadcba4db3815e82504c33a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1295,14 +1295,15 @@ MonoBehaviour:
   rollPosPivot: {fileID: 1352050617}
   rockRollPos: {fileID: 1369050488}
   pickUpDelay: 1
+  rollForce: 0
   chargebar: {fileID: 1058670803}
   chargeBarGO: {fileID: 1058670801}
   RockBounce: 0.1
   rollForceMax: 30
-  rollForce: 0
   rollAtkSpeed: 0.5
   rollChargeSpeed: 0.05
-  dashSpeed: 80
+  dashSpeed: 60
+  dashCoolDown: 3
   ethereal: 0
   sprite: {fileID: 1227830949}
 --- !u!114 &1227830954

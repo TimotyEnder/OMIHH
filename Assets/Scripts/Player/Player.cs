@@ -30,19 +30,22 @@ public class Player : MonoBehaviour
     private bool rolling;
     //roll charging
     private float rollchargetimevar;
+    [SerializeField] private float rollForce;
     //charge bar
     [SerializeField] private Slider chargebar;
     [SerializeField] private GameObject chargeBarGO;
+
     //stats
     public float RockBounce;
     public float rollForceMax;
-    [SerializeField] private float rollForce;
     public float rollAtkSpeed;
     public float rollChargeSpeed;
     public float dashSpeed;
+    public float dashCoolDown;
     // rock dash
     public bool ethereal;
     public SpriteRenderer sprite;
+    private float dashtimevar;
     void Start()
     {
         sprite = this.GetComponent<SpriteRenderer>();
@@ -119,8 +122,9 @@ public class Player : MonoBehaviour
         {
             sprite.color = Color.white;
         }
-        if (Input.GetButtonDown("Dash") && !RockPickedUp) 
+        if (Input.GetButtonDown("Dash") && !RockPickedUp && dashtimevar<Time.time) 
         {
+            dashtimevar = Time.time + dashCoolDown;
             ethereal = true;
         }
         if (RockPickedUp) 
