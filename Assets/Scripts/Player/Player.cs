@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     public bool ethereal;
     public SpriteRenderer sprite;
     private float dashtimevar;
+    private Vector2 distance;
     void Start()
     {
         sprite = this.GetComponent<SpriteRenderer>();
@@ -114,7 +115,8 @@ public class Player : MonoBehaviour
     {
         if (ethereal) 
         {
-            float step=dashSpeed * Time.deltaTime;
+            distance = this.transform.position - rock.transform.position;
+            float step=dashSpeed * Time.deltaTime * distance.magnitude;
             playerrb.MovePosition(Vector2.MoveTowards(this.transform.position, rock.transform.position, step)); 
             sprite.color = Color.blue;
         }
