@@ -34,7 +34,12 @@ public class Player : MonoBehaviour
     //charge bar
     [SerializeField] private Slider chargebar;
     [SerializeField] private GameObject chargeBarGO;
+    //dashCooldown bar
+    [SerializeField] private Slider cooldownbar;
+    [SerializeField] private GameObject cooldownbarGO;
+    [SerializeField] private bool cooldownBool;
 
+    [SerializeField] private float Debug;
     //stats
     public float RockBounce;
     public float rollForceMax;
@@ -124,14 +129,20 @@ public class Player : MonoBehaviour
         {
             sprite.color = Color.white;
         }
-        if (Input.GetButtonDown("Dash") && !RockPickedUp && dashtimevar<Time.time) 
+        if (Input.GetButtonDown("Dash") && !RockPickedUp && dashtimevar < Time.time) 
         {
+            StartCoroutine(DashCooldownCoroutine());
             dashtimevar = Time.time + dashCoolDown;
             ethereal = true;
         }
         if (RockPickedUp) 
         {
             ethereal = false;
+        }
+        if (cooldownBool) 
+        {
+            Debug = ((dashtimevar - Time.time) / dashCoolDown);
+            cooldownbar.value = ((dashtimevar - Time.time) / dashCoolDown);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -141,5 +152,13 @@ public class Player : MonoBehaviour
             pickuptimevar = Time.time + pickUpDelay;
             RockPickedUp = true;
         }
+    }
+    private IEnumerator DashCooldownCoroutine()
+    {
+        cooldownbarGO.SetActive(true);
+        cooldownBool = true;
+        yield return new WaitForSeconds(dashCoolDown);
+        cooldownBool = false;
+        cooldownbarGO.SetActive(false);
     }
 }

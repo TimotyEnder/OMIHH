@@ -1374,6 +1374,8 @@ MonoBehaviour:
   rollForce: 0
   chargebar: {fileID: 1058670803}
   chargeBarGO: {fileID: 1058670801}
+  cooldownbar: {fileID: 1473661638}
+  cooldownbarGO: {fileID: 1473661636}
   RockBounce: 0.1
   rollForceMax: 30
   rollAtkSpeed: 0.5
