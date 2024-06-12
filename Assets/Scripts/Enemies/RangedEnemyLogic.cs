@@ -9,6 +9,9 @@ public class NewBehaviourScript : MonoBehaviour
     private float speed;
     private int enemyDestTime;
     [SerializeField] private GameObject shootPos;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,25 @@ public class NewBehaviourScript : MonoBehaviour
             Rigidbody2D body = projectile.GetComponent<Rigidbody2D>();
             body.velocity = shootPos.transform.right * speed;
         }
+
+        AdjustPosition();
     }
+
+    private void AdjustPosition(){
+        Vector3 diff = player.transform.position - enemy.transform.position;
+        Rigidbody2D r = enemy.GetComponent<Rigidbody2D>();
+        float distance = diff.sqrMagnitude;
+        if(distance < 10f){
+            r.velocity = diff * -1f;
+        }
+        else if(distance > 10.5f && distance < 13f){
+            r.velocity = diff * 0f;
+        }
+        else if(distance > 13f){
+            r.velocity = diff;
+        }
+    }
+
     private IEnumerator projDestroyCoroutine(GameObject target) 
     {
         yield return new WaitForSeconds(enemyDestTime);
