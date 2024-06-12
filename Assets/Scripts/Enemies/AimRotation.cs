@@ -6,13 +6,8 @@ public class AimRotation : MonoBehaviour
 {
 
     public GameObject aimPivot;
-    public GameObject rock;
+    public GameObject target;
     private Vector3 diff;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,7 +16,7 @@ public class AimRotation : MonoBehaviour
     }
 
     void Rotate(){
-        diff = rock.transform.position - aimPivot.transform.position;
+        diff = target.transform.position - aimPivot.transform.position;
         //normalize difference  
         diff.Normalize();
         float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;

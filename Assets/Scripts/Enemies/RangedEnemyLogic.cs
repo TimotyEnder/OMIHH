@@ -1,51 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class RangedEnemyLogic : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePre;
-    public int delay;
-    private float speed;
+    private float ShootTimeVar;
     private int enemyDestTime;
     [SerializeField] private GameObject shootPos;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
+    [SerializeField] Rigidbody2D enemRb;
+    [SerializeField] private float distance;
+    //enemy  stats
+    public float distMax;
+    public float distMin;
+    public float speed;
+    public float ProjSpeed;
+    public float ShootCD;
 
     // Start is called before the first frame update
     void Start()
     {
-        delay = 0;
-        speed = 3f;
         enemyDestTime = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        delay++;
-        if(delay % 50 == 0){
-            GameObject projectile = Instantiate(projectilePre, shootPos.transform.position, Quaternion.identity);
-            StartCoroutine(projDestroyCoroutine(projectile));
-            Rigidbody2D body = projectile.GetComponent<Rigidbody2D>();
-            body.velocity = shootPos.transform.right * speed;
-        }
-
+        Shoot(); 
         AdjustPosition();
     }
 
     private void AdjustPosition(){
         Vector3 diff = player.transform.position - enemy.transform.position;
-        Rigidbody2D r = enemy.GetComponent<Rigidbody2D>();
-        float distance = diff.sqrMagnitude;
-        if(distance < 10f){
-            r.velocity = diff * -1f;
+         Vector3 diffNorm= diff.normalized;  
+        distance = diff.magnitude;
+        if (distance < distMin)
+        {
+            enemRb.velocity = diffNorm * -1f * speed;
         }
-        else if(distance > 10.5f && distance < 13f){
-            r.velocity = diff * 0f;
+        else if(distance > distMin && distance < distMax)
+        {
+            enemRb.velocity = diffNorm * 0f;
         }
-        else if(distance > 13f){
-            r.velocity = diff;
+        else if(distance > distMax)
+        {
+            enemRb.velocity = diffNorm * speed;
+        }
+    }
+    private void Shoot() 
+    {
+        if (Time.time>ShootTimeVar && enemRb.velocity.magnitude<0.1f)
+        {
+            ShootTimeVar = Time.time + ShootCD;
+            GameObject projectile = Instantiate(projectilePre, shootPos.transform.position, Quaternion.identity);
+            StartCoroutine(projDestroyCoroutine(projectile));
+            Rigidbody2D body = projectile.GetComponent<Rigidbody2D>();
+            body.velocity = shootPos.transform.right * ProjSpeed;
         }
     }
 

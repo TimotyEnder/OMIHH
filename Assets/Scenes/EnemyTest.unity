@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 292887743}
   - component: {fileID: 292887744}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: RangedEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1606,13 +1606,21 @@ MonoBehaviour:
   rollPosPivot: {fileID: 72108057}
   rockRollPos: {fileID: 1573374022}
   pickUpDelay: 0.5
+  rollForce: 0
   chargebar: {fileID: 0}
   chargeBarGO: {fileID: 0}
+  cooldownbar: {fileID: 0}
+  cooldownbarGO: {fileID: 0}
+  cooldownBool: 0
+  Debug: 0
   RockBounce: 0.1
   rollForceMax: 30
-  rollForce: 0
   rollAtkSpeed: 0.5
   rollChargeSpeed: 0.05
+  dashSpeed: 0
+  dashCoolDown: 0
+  ethereal: 0
+  sprite: {fileID: 0}
 --- !u!4 &1996733377
 Transform:
   m_ObjectHideFlags: 0
