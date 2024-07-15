@@ -1230,7 +1230,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 1.5
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -1470,6 +1470,7 @@ MonoBehaviour:
   RockPickedUp: 0
   rollPosPivot: {fileID: 1352050617}
   rockRollPos: {fileID: 1369050488}
+  rockcol: {fileID: 1188232276}
   pickUpDelay: 1
   rollForce: 0
   chargebar: {fileID: 1058670803}
@@ -1503,6 +1504,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   spriteFull: {fileID: 0}
   spriteHigh: {fileID: 0}
+  playerscript: {fileID: 1227830953}
 --- !u!1 &1261865287
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public GameObject rollPosPivot;
     private Vector3 diff;
     public GameObject rockRollPos;
+    public CircleCollider2D rockcol;
     //pickup delay
     private float pickuptimevar;
     public float pickUpDelay;
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour
             rolling =false;
             RockPickedUp = false;
             rock.transform.position = rockRollPos.transform.position;
+            rockcol.isTrigger = false;
 
             // Calculate the direction the rock is facing
             Vector2 rollDirection = rockRollPos.transform.right; // Assuming right is the direction the rock faces
@@ -151,6 +153,7 @@ public class Player : MonoBehaviour
         {
             pickuptimevar = Time.time + pickUpDelay;
             RockPickedUp = true;
+            rockcol.isTrigger = true;   
         }
     }
     private IEnumerator DashCooldownCoroutine()

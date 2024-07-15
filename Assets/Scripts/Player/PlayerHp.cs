@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerHp : MonoBehaviour
 {
-    [SerializeField] private int curHealth = 0;
-    [SerializeField] private int maxHealth = 4;
+    public int curHealth = 0;
+    public int maxHealth = 4;
     public SpriteRenderer spriteRenderer;
     public Sprite spriteFull;
     public Sprite spriteHigh;
+    public Player playerscript;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +22,12 @@ public class PlayerHp : MonoBehaviour
         ChangeSprite();
     }
 
-    public void DamageRock(int damage)
+    public void Damage(int damage)
     {
         curHealth -= damage;
     }
 
-    public void HealRock(int healing){
+    public void Heal(int healing){
         curHealth += healing;
     }
 
@@ -36,5 +37,17 @@ public class PlayerHp : MonoBehaviour
         if(curHealth < maxHealth) sprite = spriteHigh;
 
         spriteRenderer.sprite = sprite;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("proj"))
+        {
+            if (!playerscript.ethereal)
+            {
+                ProjDamage proj = collision.gameObject.GetComponent<ProjDamage>();
+                Damage(proj.Damage);
+            }
+            Destroy(collision.gameObject);
+        }
     }
 }

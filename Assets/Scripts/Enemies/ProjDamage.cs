@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyLogic : MonoBehaviour
+public class ProjDamage : MonoBehaviour
 {
+    public int Damage;
+
     // Start is called before the first frame update
     void Start()
     {
