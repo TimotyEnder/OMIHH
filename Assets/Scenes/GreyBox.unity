@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 2810012}
   - component: {fileID: 2810011}
   - component: {fileID: 2810010}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 685249390}
   - component: {fileID: 685249392}
   - component: {fileID: 685249391}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058670802}
   - component: {fileID: 1058670803}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ChargeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,6 +1109,7 @@ GameObject:
   - component: {fileID: 1188232279}
   - component: {fileID: 1188232281}
   - component: {fileID: 1188232282}
+  - component: {fileID: 1188232283}
   m_Layer: 0
   m_Name: Rock
   m_TagString: rock
@@ -1230,7 +1231,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDrag: 1.5
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -1283,6 +1284,22 @@ MonoBehaviour:
   rockRb: {fileID: 1188232279}
   player: {fileID: 1227830953}
   rockAnimSpeed: 2
+--- !u!114 &1188232283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188232275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538b6446d2452e645a4f9d5eff87e205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 3
+  playerscript: {fileID: 1227830953}
+  rockspr: {fileID: 1188232277}
 --- !u!1 &1227830948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,9 +1314,9 @@ GameObject:
   - component: {fileID: 1227830952}
   - component: {fileID: 1227830953}
   - component: {fileID: 1227830954}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,6 +1488,7 @@ MonoBehaviour:
   rollPosPivot: {fileID: 1352050617}
   rockRollPos: {fileID: 1369050488}
   rockcol: {fileID: 1188232276}
+  rockscript: {fileID: 1188232283}
   pickUpDelay: 1
   rollForce: 0
   chargebar: {fileID: 1058670803}
@@ -1551,7 +1569,7 @@ GameObject:
   - component: {fileID: 1343733838}
   - component: {fileID: 1343733840}
   - component: {fileID: 1343733839}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1625,7 +1643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352050618}
   - component: {fileID: 1352050619}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RollPosPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,7 +1728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1369050489}
   - component: {fileID: 1369050490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RollPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1794,7 +1812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473661637}
   - component: {fileID: 1473661638}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: DashBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,7 +2031,7 @@ GameObject:
   - component: {fileID: 1759636764}
   - component: {fileID: 1759636766}
   - component: {fileID: 1759636765}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2358,7 +2376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958792192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RockCarry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2423,7 +2441,7 @@ GameObject:
   - component: {fileID: 2147440846}
   - component: {fileID: 2147440848}
   - component: {fileID: 2147440847}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}

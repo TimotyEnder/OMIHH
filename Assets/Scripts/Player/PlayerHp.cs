@@ -44,7 +44,7 @@ public class PlayerHp : MonoBehaviour
         {
             if (!playerscript.ethereal)
             {
-                ProjDamage proj = collision.gameObject.GetComponent<ProjDamage>();
+                Proj proj = collision.gameObject.GetComponent<Proj>();
                 Damage(proj.Damage);
             }
             Destroy(collision.gameObject);

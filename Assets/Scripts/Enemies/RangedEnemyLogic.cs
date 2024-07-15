@@ -58,8 +58,9 @@ public class RangedEnemyLogic : MonoBehaviour
             GameObject projectile = Instantiate(projectilePre, shootPos.transform.position, Quaternion.identity);
             StartCoroutine(projDestroyCoroutine(projectile));
             Rigidbody2D body = projectile.GetComponent<Rigidbody2D>();
-            ProjDamage damage = body.GetComponent<ProjDamage>();
-            damage.Damage = 1;
+            Proj proj = body.GetComponent<Proj>();
+            proj.Damage = 1;
+            proj.DestOnTouch = true;
             body.velocity = shootPos.transform.right * ProjSpeed;
         }
     }

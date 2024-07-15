@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private Vector3 diff;
     public GameObject rockRollPos;
     public CircleCollider2D rockcol;
+    public RockHp rockscript;
     //pickup delay
     private float pickuptimevar;
     public float pickUpDelay;
@@ -123,7 +124,7 @@ public class Player : MonoBehaviour
         if (ethereal) 
         {
             distance = this.transform.position - rock.transform.position;
-            float step=dashSpeed * Time.deltaTime * distance.magnitude;
+            float step=(dashSpeed  * distance.magnitude) * Time.deltaTime;
             playerrb.MovePosition(Vector2.MoveTowards(this.transform.position, rock.transform.position, step)); 
             sprite.color = Color.blue;
         }
@@ -153,6 +154,7 @@ public class Player : MonoBehaviour
         {
             pickuptimevar = Time.time + pickUpDelay;
             RockPickedUp = true;
+            rockscript.curHealth = rockscript.maxHealth; 
             rockcol.isTrigger = true;   
         }
     }
