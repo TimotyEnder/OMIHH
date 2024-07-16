@@ -12,7 +12,7 @@ public class CamPlayerFollow : MonoBehaviour
     void Update()
     {
         Vector3 targetPos = new Vector3(player.transform.position.x, player.transform.position.y, this.transform.position.z);
-        CamSpeed = CamSpeedMult * Mathf.Abs((this.transform.position - targetPos).magnitude);
+        CamSpeed = CamSpeedMult * Mathf.Abs((this.transform.position - targetPos).magnitude) * Mathf.Abs((this.transform.position - targetPos).magnitude);
         this.transform.position = Vector3.Lerp(this.transform.position, targetPos, CamSpeed* Time.deltaTime);
     }
 }
