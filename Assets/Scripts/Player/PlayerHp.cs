@@ -19,7 +19,11 @@ public class PlayerHp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChangeSprite();
+        if (curHealth < 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+       // ChangeSprite(); work on player damage script
     }
 
     public void Damage(int damage)
