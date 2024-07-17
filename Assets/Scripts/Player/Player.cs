@@ -127,8 +127,8 @@ public class Player : MonoBehaviour
         if (ethereal) 
         {
             distance = this.transform.position - rock.transform.position;
-            float step=(dashSpeed  * distance.magnitude) * Time.deltaTime;
-            playerrb.MovePosition(Vector2.MoveTowards(this.transform.position, rock.transform.position, step)); 
+            float step=(dashSpeed  * distance.magnitude);
+            playerrb.MovePosition(Vector2.MoveTowards(this.transform.position, rock.transform.position, step * Time.deltaTime)); 
             sprite.color = Color.blue;
         }
         else 
