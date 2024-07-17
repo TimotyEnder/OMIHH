@@ -2182,6 +2182,7 @@ MonoBehaviour:
   rollChargeSpeed: 0.03
   dashSpeed: 30
   dashCoolDown: 3
+  PostRollSpeedBoostDuration: 3
   ethereal: 0
   sprite: {fileID: 1227830949}
 --- !u!114 &1227830954

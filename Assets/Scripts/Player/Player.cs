@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     public float rollChargeSpeed;
     public float dashSpeed;
     public float dashCoolDown;
+    public float PostRollSpeedBoostDuration;
     // rock dash
     public bool ethereal;
     public SpriteRenderer sprite;
@@ -108,6 +109,7 @@ public class Player : MonoBehaviour
 
             // Apply the force to the rock in the roll direction
             rockRb.velocity = rollDirection * rollForce;
+            StartCoroutine(PostRollSpeedBoost());
             rollForce = 0;
 
         }
@@ -165,5 +167,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashCoolDown);
         cooldownBool = false;
         cooldownbarGO.SetActive(false);
+    }
+    private IEnumerator PostRollSpeedBoost() 
+    {
+        float speedAdd = (rollForce / rollForceMax) * 5;
+        FreeSpeed=FreeSpeed+ speedAdd;  
+        yield return new WaitForSeconds(PostRollSpeedBoostDuration);
+        FreeSpeed = FreeSpeed - speedAdd;
     }
 }
