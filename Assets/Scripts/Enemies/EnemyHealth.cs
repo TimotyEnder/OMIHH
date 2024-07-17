@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Rigidbody2D rockrb= collision.gameObject.GetComponent<Rigidbody2D>();
             RockDmg dmg = collision.gameObject.GetComponent<RockDmg>();
-           if(rockrb.velocity.magnitude>0.1f)
+           if(rockrb.velocity.magnitude>1f)
            { 
                 Damage(dmg.Damage()*(rockrb.velocity.magnitude / playerscript.rollForceMax));
                 StartCoroutine(SquishedCoroutine());

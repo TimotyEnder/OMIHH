@@ -8,9 +8,11 @@ public class RockHp : MonoBehaviour
     public int maxHealth;
     public Player playerscript;
     public SpriteRenderer rockspr;
+    public Rigidbody2D rockrb;
     void Start()
     {
         curHealth = maxHealth;
+        rockrb=this.gameObject.GetComponent<Rigidbody2D>(); 
     }
 
     // Update is called once per frame
@@ -42,8 +44,11 @@ public class RockHp : MonoBehaviour
         if (collision.gameObject.tag.Equals("proj")) 
         {
             Proj projsc= collision.gameObject.GetComponent<Proj>();
-            Damage(projsc.Damage);
-            Destroy(collision.gameObject);
+            if(rockrb.velocity.magnitude<1f)
+            {  
+                Damage(projsc.Damage);
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     public float dashSpeed;
     public float dashCoolDown;
     public float PostRollSpeedBoostDuration;
+    public float PostRollSpeedBoostMax;
     // rock dash
     public bool ethereal;
     public SpriteRenderer sprite;
@@ -170,7 +171,7 @@ public class Player : MonoBehaviour
     }
     private IEnumerator PostRollSpeedBoost() 
     {
-        float speedAdd = (rollForce / rollForceMax) * 5;
+        float speedAdd = (rollForce / rollForceMax) * PostRollSpeedBoostMax;
         FreeSpeed=FreeSpeed+ speedAdd;  
         yield return new WaitForSeconds(PostRollSpeedBoostDuration);
         FreeSpeed = FreeSpeed - speedAdd;

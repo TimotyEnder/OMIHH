@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &268448140
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,7 +812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &640746483
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1966,6 +1966,7 @@ MonoBehaviour:
   maxHealth: 3
   playerscript: {fileID: 1227830953}
   rockspr: {fileID: 1188232277}
+  rockrb: {fileID: 0}
 --- !u!114 &1188232284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,7 +2160,7 @@ MonoBehaviour:
   y: 0
   move: {x: 0, y: 0}
   FreeSpeed: 5
-  PickUpSpeed: 3
+  PickUpSpeed: 4
   rock: {fileID: 1188232275}
   rockRb: {fileID: 1188232279}
   rockCarry: {fileID: 1958792191}
@@ -2182,7 +2183,8 @@ MonoBehaviour:
   rollChargeSpeed: 0.03
   dashSpeed: 30
   dashCoolDown: 3
-  PostRollSpeedBoostDuration: 3
+  PostRollSpeedBoostDuration: 2
+  PostRollSpeedBoostMax: 5
   ethereal: 0
   sprite: {fileID: 1227830949}
 --- !u!114 &1227830954
@@ -3063,7 +3065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1873702061
 SpriteRenderer:
   m_ObjectHideFlags: 0
